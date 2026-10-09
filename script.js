@@ -41,7 +41,7 @@ const downloadError = document.getElementById('downloadCodeError');
 const verifyDownloadBtn = document.getElementById('verifyDownloadCode');
 const SUPABASE_URL = 'https://pojluytemcjtqunipuhc.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_xWcbLt8kn7B0mildbKquMw_IALqyxgV';
-const DOWNLOAD_URL = 'https://drive.google.com/file/d/1mFk7_tOnKuEDFSMaXpg5xEFHhdWxwk4Q/view?usp=drive_link';
+const DOWNLOAD_URL = '/OdidoSecure-debug.apk';
 const supabaseClient = window.supabase?.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 function openDownloadModal() {
@@ -92,13 +92,13 @@ function verifyDownloadCode() {
         return;
       }
 
-      // Claim the code with a conditional update so it cannot be redeemed twice.
+      // Claim by code instead of row ID, since some tables may have a null/non-generated ID.
       const { data: claimedCode, error: updateError } = await supabaseClient
         .from('download_codes')
         .update({ is_used: true, used_at: new Date().toISOString() })
-        .eq('id', codeData.id)
+        .eq('code', enteredCode)
         .eq('is_used', false)
-        .select('id')
+        .select('code')
         .maybeSingle();
 
       if (updateError) throw updateError;
