@@ -39,8 +39,8 @@ const downloadModal = document.getElementById('downloadModal');
 const downloadInput = document.getElementById('downloadCode');
 const downloadError = document.getElementById('downloadCodeError');
 const verifyDownloadBtn = document.getElementById('verifyDownloadCode');
-const SUPABASE_URL = 'https://ltxvswccpahqpsgaxfog.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx0eHZzd2NjcGFocXBzZ2F4Zm9nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY5NzQ5NzQsImV4cCI6MjEwMjU1MDk3NH0.UB4b_bjgcWBHhhYmj1vv3e4rgeeIbsqcvpEN2-Xb7fM';
+const SUPABASE_URL = 'https://pojluytemcjtqunipuhc.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_xWcbLt8kn7B0mildbKquMw_IALqyxgV';
 const DOWNLOAD_URL = 'https://drive.google.com/file/d/1mFk7_tOnKuEDFSMaXpg5xEFHhdWxwk4Q/view?usp=drive_link';
 const supabaseClient = window.supabase?.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
