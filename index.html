@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Odido Secure â€“ concept (schoolproject)</title>
+<title>Odido Secure</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
 
 <header class="main">
   <div class="wrap">
-    <a class="brand" href="#">Odido Secure <small>Concept</small></a>
+    <a class="brand" href="#">Odido Secure</a>
     <nav class="menu" aria-label="Hoofdmenu">
       <a href="#">Mobiel</a><a href="#">Internet + TV</a><a href="#">Familie</a><a href="#" aria-current="page">Veilig online</a><a href="#">Service</a>
     </nav>
@@ -60,7 +60,6 @@
           <h2 id="slot-h">Riskant nummer aan de lijn? Je apps gaan op slot.</h2>
           <p>Oplichters laten je tijdens het gesprek vaak je bank-app openen of inloggen met DigiD. Odido Secure maakt dat onmogelijk.</p>
           <ul>
-            <li><b>Herkent riskante bellers.</b> Nagemaakte nummers, bekende fraudenummers en buitenlandse nummers die zich voordoen als Nederlands.</li>
             <li><b>Sluit gevoelige apps automatisch.</b> Je bank-app, e-mail, DigiD en betaal-apps worden gesloten en blijven dicht zolang het gesprek duurt.</li>
             <li><b>Weer open na ophangen.</b> Zodra het gesprek voorbij is, kun je je apps gewoon weer gebruiken.</li>
             <li><b>Jij kiest de apps.</b> Bepaal zelf welke apps als gevoelig gelden.</li>
@@ -144,7 +143,7 @@
       <details><summary>Belt de provider mij ooit om mijn inloggegevens?</summary><p>Nooit. Een echte medewerker vraagt nooit om je wachtwoord, pincode of een verificatiecode. Wordt dat wel gevraagd? Hang op.</p></details>
       <details><summary>Welke apps gaan op slot tijdens een gesprek?</summary><p>Standaard je bank-apps, e-mail, DigiD en betaal-apps. In de app kun je zelf apps toevoegen of weghalen.</p></details>
       <details><summary>Kan ik een app tijdens het gesprek toch openen?</summary><p>Nee, en dat is expres. Oplichters zetten je onder druk om iets "snel even" te regelen. Een echte bank vraagt nooit om tijdens een telefoontje je app te openen of geld over te maken. Na ophangen zijn je apps meteen weer beschikbaar.</p></details>
-      <details><summary>Kost de app geld?</summary><p>In dit concept is Odido Secure gratis voor alle klanten.</p></details>
+      <details><summary>Kost de app geld?</summary><p>Odido Secure is gratis voor alle klanten.</p></details>
     </section>
 
     <section class="contact" aria-labelledby="hulp-h">
@@ -166,16 +165,27 @@
     <div class="cols">
       <div><h4>Veilig online</h4><ul><li>Odido Secure</li><li>Phishing herkennen</li><li>Simswap</li><li>Tips voor ouders</li></ul></div>
       <div><h4>Service</h4><ul><li>Fraude melden</li><li>Contact</li><li>Veelgestelde vragen</li></ul></div>
-      <div><h4>Over dit project</h4><ul><li>Opleiding Cyber Security</li><li>Concept-app tegen fraude</li></ul></div>
     </div>
     <div class="stores" style="margin:0 0 28px">
-      <a class="store" href="#" aria-label="Download Odido Secure voor Android in Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M12 7v7M9 11l3 3 3-3M10 18h4"/></svg><span><small>Samsung / Android</small><b>Google Play</b></span></a>
-      <a class="store" href="#" aria-label="Download Odido Secure voor iPhone in de App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M12 7v7M9 11l3 3 3-3M10 18h4"/></svg><span><small>iPhone</small><b>App Store</b></span></a>
+      <a class="store" href="#" aria-label="Download Odido Secure voor Android in Google Play" data-download="play"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M12 7v7M9 11l3 3 3-3M10 18h4"/></svg><span><small>Samsung / Android</small><b>Google Play</b></span></a>
+      <a class="store" href="#" aria-label="Download Odido Secure voor iPhone in de App Store" data-download="app-store"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M12 7v7M9 11l3 3 3-3M10 18h4"/></svg><span><small>iPhone</small><b>App Store</b></span></a>
     </div>
-    <p class="disclaimer">Schoolproject. Dit is een concept en geen officiÃ«le pagina of dienst van Odido. Odido is een handelsnaam van de betreffende eigenaar.</p>
   </div>
 </footer>
 
+<div id="downloadModal" class="download-modal" aria-hidden="true">
+  <div class="download-modal__backdrop" data-close-modal="true"></div>
+  <div class="download-modal__content" role="dialog" aria-modal="true" aria-labelledby="downloadModalTitle">
+    <button type="button" class="download-modal__close" aria-label="Sluit downloadvenster" data-close-modal="true">×</button>
+    <h2 id="downloadModalTitle">Download toegang</h2>
+    <p>Voer je 8-teken code in om verder te gaan met downloaden.</p>
+    <input id="downloadCode" type="text" maxlength="8" inputmode="text" autocomplete="off" placeholder="Bijv. A1B2C3D4" aria-label="Download code" />
+    <button type="button" id="verifyDownloadCode" class="btn">Verifieer code</button>
+    <p id="downloadCodeError" class="download-modal__error" aria-live="polite"></p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="script.js"></script>
 </body>
 </html>

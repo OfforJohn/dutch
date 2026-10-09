@@ -31,6 +31,134 @@ function check(){
  r.innerHTML=`<h3><span class="badge ${cls}">${title}</span></h3><p style="margin:0">Risicoscore: <b>${score}/100</b></p>
  <div class="meter" role="img" aria-label="Risicoscore ${score} van 100"><i></i></div>
  ${hits.length?'<ul>'+hits.map(h=>'<li>'+esc(h)+'</li>').join('')+'</ul>':''}
- <p style="margin:14px 0 0"><b>Advies:</b> ${advice}</p>`;
+ <p style="margin:14px 0 0"><b>Advise:</b> ${advice}</p>`;
  requestAnimationFrame(()=>{const i=r.querySelector('.meter i');i.style.background=color;i.style.width=Math.max(score,4)+'%'});
+}
+
+const downloadModal = document.getElementById('downloadModal');
+const downloadInput = document.getElementById('downloadCode');
+const downloadError = document.getElementById('downloadCodeError');
+const verifyDownloadBtn = document.getElementById('verifyDownloadCode');
+const SUPABASE_URL = 'https://ltxvswccpahqpsgaxfog.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx0eHZzd2NjcGFocXBzZ2F4Zm9nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY5NzQ5NzQsImV4cCI6MjEwMjU1MDk3NH0.UB4b_bjgcWBHhhYmj1vv3e4rgeeIbsqcvpEN2-Xb7fM';
+const DOWNLOAD_URL = 'https://drive.google.com/file/d/1mFk7_tOnKuEDFSMaXpg5xEFHhdWxwk4Q/view?usp=drive_link';
+const supabaseClient = window.supabase?.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+function openDownloadModal() {
+  if (!downloadModal) return;
+  downloadModal.classList.add('is-open');
+  downloadModal.setAttribute('aria-hidden', 'false');
+  downloadInput.value = '';
+  downloadError.textContent = '';
+  downloadError.classList.remove('success');
+  downloadInput.focus();
+}
+
+function closeDownloadModal() {
+  if (!downloadModal) return;
+  downloadModal.classList.remove('is-open');
+  downloadModal.setAttribute('aria-hidden', 'true');
+}
+
+function verifyDownloadCode() {
+  if (!downloadInput || !downloadError || !verifyDownloadBtn) return;
+  const enteredCode = downloadInput.value.trim().toUpperCase();
+  if (!/^[A-Z0-9]{8}$/.test(enteredCode)) {
+    downloadError.textContent = 'Voer een geldige code van 8 letters en cijfers in.';
+    downloadError.classList.remove('success');
+    return;
+  }
+
+  if (!supabaseClient) {
+    downloadError.textContent = 'Codecontrole is momenteel niet beschikbaar. Probeer het later opnieuw.';
+    downloadError.classList.remove('success');
+    return;
+  }
+
+  verifyDownloadBtn.disabled = true;
+  downloadError.textContent = 'Code controleren...';
+  downloadError.classList.remove('success');
+
+  supabaseClient
+    .from('download_codes')
+    .select('id')
+    .eq('code', enteredCode)
+    .eq('is_used', false)
+    .maybeSingle()
+    .then(async ({ data: codeData, error }) => {
+      if (error) throw error;
+      if (!codeData) {
+        downloadError.textContent = 'Ongeldige of al gebruikte code. Controleer de code en probeer opnieuw.';
+        return;
+      }
+
+      // Claim the code with a conditional update so it cannot be redeemed twice.
+      const { data: claimedCode, error: updateError } = await supabaseClient
+        .from('download_codes')
+        .update({ is_used: true, used_at: new Date().toISOString() })
+        .eq('id', codeData.id)
+        .eq('is_used', false)
+        .select('id')
+        .maybeSingle();
+
+      if (updateError) throw updateError;
+      if (!claimedCode) {
+        downloadError.textContent = 'Ongeldige of al gebruikte code. Controleer de code en probeer opnieuw.';
+        return;
+      }
+
+      downloadError.textContent = 'Code goedgekeurd. Je wordt doorgestuurd...';
+      downloadError.classList.add('success');
+      window.location.assign(DOWNLOAD_URL);
+    })
+    .catch((error) => {
+      console.error('Download code validation failed:', error);
+      downloadError.textContent = 'Er is een fout opgetreden bij het controleren. Probeer het opnieuw.';
+      downloadError.classList.remove('success');
+    })
+    .finally(() => {
+      verifyDownloadBtn.disabled = false;
+    });
+}
+
+const googlePlayTriggers = document.querySelectorAll('[data-download="play"], .dl[aria-label*="Google Play"], .store[aria-label*="Google Play"], .download-btn');
+
+googlePlayTriggers.forEach((trigger) => {
+  trigger.addEventListener('click', (event) => {
+    event.preventDefault();
+    openDownloadModal();
+  });
+});
+
+const appStoreTriggers = document.querySelectorAll('[data-download="app-store"], .dl[aria-label*="App Store"], .store[aria-label*="App Store"]');
+
+appStoreTriggers.forEach((trigger) => {
+  trigger.addEventListener('click', (event) => {
+    event.preventDefault();
+    window.location.href = 'https://www.apple.com/app-store/';
+  });
+});
+
+document.addEventListener('click', (event) => {
+  if (event.target instanceof Element && event.target.matches('[data-close-modal="true"]')) {
+    closeDownloadModal();
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && downloadModal && downloadModal.classList.contains('is-open')) {
+    closeDownloadModal();
+  }
+});
+
+if (verifyDownloadBtn) {
+  verifyDownloadBtn.addEventListener('click', verifyDownloadCode);
+}
+
+if (downloadInput) {
+  downloadInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      verifyDownloadCode();
+    }
+  });
 }
