@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Odido Secure â€“ concept (schoolproject)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="glow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#82ACFF"/><stop offset=".55" stop-color="#AAA4FF"/><stop offset="1" stop-color="#FFAE7C"/></linearGradient>
+</defs></svg>
+
+<div class="topbar"><div class="wrap"><a class="tab on" href="#">Consument</a><a class="tab" href="#">Zakelijk</a></div></div>
+
+<header class="main">
+  <div class="wrap">
+    <a class="brand" href="#">Odido Secure <small>Concept</small></a>
+    <nav class="menu" aria-label="Hoofdmenu">
+      <a href="#">Mobiel</a><a href="#">Internet + TV</a><a href="#">Familie</a><a href="#" aria-current="page">Veilig online</a><a href="#">Service</a>
+    </nav>
+    <div class="icons" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M4 7h16v4M4 7v4M8 7V4h8v3M4 11h16"/><path d="M5 11l1 9h12l1-9"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="hero-band"><div class="wrap">
+    <a class="back" href="#" aria-label="Terug naar Veilig online"><svg viewBox="0 0 24 24"><path d="M20 12H4M10 6l-6 6 6 6"/></svg></a>
+    <h1>Odido Secure.</h1>
+  </div></div>
+
+  <div class="wrap">
+    <section class="intro">
+      <p>Odido Secure herkent nep-sms'jes, valse bellers en verdachte links voordat jij erin trapt. Gewoon in je telefoon, zonder gedoe.</p>
+      <div class="card download" id="download">
+        <h2>Download Odido Secure. Gratis.</h2>
+        <p class="kies">Kies hieronder welke telefoon je hebt en tik op de knop.</p>
+        <a class="dl" href="#" aria-label="Download Odido Secure voor Samsung of Android via Google Play">
+          <span><small>Heb je een Samsung of andere Android?</small><b>Klik hier om te downloaden</b><em>Via Google Play</em></span>
+          <i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg></i>
+        </a>
+        <a class="dl" href="#" aria-label="Download Odido Secure voor iPhone via de App Store">
+          <span><small>Heb je een iPhone?</small><b>Klik hier om te downloaden</b><em>Via de App Store</em></span>
+          <i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"/></svg></i>
+        </a>
+        <p class="hint"><b>Weet je niet welke telefoon je hebt?</b> Zit er een appeltje op de achterkant? Dan heb je een iPhone. Zo niet, dan heb je een Android-telefoon.</p>
+      </div>
+    </section>
+
+    <section class="block" id="appslot" aria-labelledby="slot-h">
+      <div class="card feature lockfeat">
+        <div>
+          <h2 id="slot-h">Riskant nummer aan de lijn? Je apps gaan op slot.</h2>
+          <p>Oplichters laten je tijdens het gesprek vaak je bank-app openen of inloggen met DigiD. Odido Secure maakt dat onmogelijk.</p>
+          <ul>
+            <li><b>Herkent riskante bellers.</b> Nagemaakte nummers, bekende fraudenummers en buitenlandse nummers die zich voordoen als Nederlands.</li>
+            <li><b>Sluit gevoelige apps automatisch.</b> Je bank-app, e-mail, DigiD en betaal-apps worden gesloten en blijven dicht zolang het gesprek duurt.</li>
+            <li><b>Weer open na ophangen.</b> Zodra het gesprek voorbij is, kun je je apps gewoon weer gebruiken.</li>
+            <li><b>Jij kiest de apps.</b> Bepaal zelf welke apps als gevoelig gelden.</li>
+          </ul>
+        </div>
+        <div class="phone" aria-label="Voorbeeld: gevoelige apps op slot tijdens een riskant gesprek">
+          <div class="screen">
+            <div class="call"><div>+31 20 â€¢â€¢â€¢ â€¢â€¢ 12<small>In gesprek Â· 02:41</small></div><span class="risk">Hoog risico</span></div>
+            <div class="app"><i></i><span>Bank-app</span><em>Op slot</em></div>
+            <div class="app"><i></i><span>E-mail</span><em>Op slot</em></div>
+            <div class="app"><i></i><span>DigiD</span><em>Op slot</em></div>
+            <div class="app"><i></i><span>Betaal-apps</span><em>Op slot</em></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="check" aria-labelledby="check-h">
+      <div class="card checker">
+        <div>
+          <h2 id="check-h">Twijfel je over een bericht?</h2>
+          <p>Plak de tekst van een sms, WhatsApp of mail. Je ziet meteen welke signalen op fraude wijzen.</p>
+          <label for="msg">Tekst van het bericht</label>
+          <textarea id="msg" placeholder="Bijv. 'Hoi mam, mijn telefoon is kapotâ€¦'"></textarea>
+          <div class="samples" aria-label="Voorbeeldberichten">
+            <button type="button" data-s="0">Hoi mam-fraude</button>
+            <button type="button" data-s="1">Nep-pakketje</button>
+            <button type="button" data-s="2">Nep-factuur</button>
+            <button type="button" data-s="3">Normaal bericht</button>
+          </div>
+          <button class="btn" type="button" id="run">Check bericht</button>
+        </div>
+        <div class="result" aria-live="polite" id="result">
+          <h3>Resultaat</h3>
+          <p class="empty">Plak een bericht en tik op <b>Check bericht</b>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="bescherm-h">
+      <h2 id="bescherm-h">Hier beschermt Odido Secure je tegen.</h2>
+      <div class="grid">
+        <div class="card"><svg class="icon" viewBox="0 0 72 96"><path d="M8 18h56v44H30l-14 12V62H8z"/><path d="M22 34h28M22 46h18"/></svg><h3>Phishing-sms.</h3><p>Links naar nep-sites van banken, pakketdiensten of je provider worden geblokkeerd.</p><a class="arrow" href="#" aria-label="Meer over phishing"><svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></div>
+        <div class="card"><svg class="icon" viewBox="0 0 72 96"><rect x="14" y="6" width="44" height="84" rx="8"/><path d="M30 12h12"/><path d="M28 44c4 8 8 12 16 16l5-5 7 4-3 7c-14 0-29-15-29-29l7-3 4 7z"/></svg><h3>Spoofing.</h3><p>Belt iemand met het nummer van je bank? Je ziet een waarschuwing als het nummer is nagemaakt.</p><a class="arrow" href="#" aria-label="Meer over spoofing"><svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></div>
+        <div class="card"><svg class="icon" viewBox="0 0 72 96"><circle cx="36" cy="34" r="14"/><path d="M10 84c2-16 13-26 26-26s24 10 26 26"/></svg><h3>Vriend-in-noodfraude.</h3><p>"Hoi mam, nieuw nummer"? De app herkent het patroon en adviseert om eerst te bellen.</p><a class="arrow" href="#" aria-label="Meer over vriend-in-noodfraude"><svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></div>
+        <div class="card"><svg class="icon" viewBox="0 0 72 96"><path d="M12 6h34l14 14v70H12z"/><rect x="22" y="50" width="28" height="22" rx="3"/><path d="M28 50v-6a8 8 0 0116 0v6"/></svg><h3>Simswap.</h3><p>Wordt je nummer naar een andere simkaart gezet zonder jouw akkoord? Je krijgt direct een melding.</p><a class="arrow" href="#" aria-label="Meer over simswap"><svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></div>
+      </div>
+    </section>
+
+    <section class="block" id="hoe" aria-labelledby="hoe-h">
+      <h2 id="hoe-h">Zo werkt het.</h2>
+      <ol class="steps">
+        <li><h3>Download de app</h3><p>Installeer Odido Secure en log in met je klantaccount.</p></li>
+        <li><h3>Zet bescherming aan</h3><p>Geef toestemming om sms'jes en oproepen te scannen en kies welke apps gevoelig zijn. Alles gebeurt op je telefoon.</p></li>
+        <li><h3>Krijg een seintje</h3><p>Bij een verdacht bericht of telefoontje zie je meteen wat er mis is en wat je kunt doen.</p></li>
+        <li><h3>Meld het</h3><p>Met Ã©Ã©n tik meld je fraude. Zo worden andere klanten ook beter beschermd.</p></li>
+      </ol>
+    </section>
+
+    <section class="block">
+      <div class="card feature">
+        <div>
+          <h2>Een waarschuwing die je snapt.</h2>
+          <p>Geen technische taal. Odido Secure zegt gewoon wat er aan de hand is en wat je nu moet doen. Ook handig voor je ouders of je kind.</p>
+          <a class="arrow" href="#check" aria-label="Probeer de check"><svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="phone" aria-label="Voorbeeld van meldingen in de app">
+          <div class="screen">
+            <div class="notif n-red"><b>Verdacht bericht geblokkeerd</b>Link naar nep-site van een pakketdienst.</div>
+            <div class="notif n-blue"><b>Let op bij dit gesprek</b>Nummer lijkt op je bank, maar komt uit het buitenland.</div>
+            <div class="notif n-green"><b>Alles veilig</b>Vandaag 14 berichten gecheckt.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="faq-h">
+      <h2 id="faq-h">Vragen? Vragen!</h2>
+      <details><summary>Leest Odido Secure al mijn berichten mee?</summary><p>Nee. Berichten worden op je eigen telefoon gecontroleerd op bekende fraudepatronen. Er gaat geen inhoud naar een server, alleen een melding als jij die zelf verstuurt.</p></details>
+      <details><summary>Wat moet ik doen als ik al op een link heb geklikt?</summary><p>Bel direct je bank via het nummer op je bankpas, verander je wachtwoorden en doe aangifte bij de politie. In de app vind je een stappenplan.</p></details>
+      <details><summary>Belt de provider mij ooit om mijn inloggegevens?</summary><p>Nooit. Een echte medewerker vraagt nooit om je wachtwoord, pincode of een verificatiecode. Wordt dat wel gevraagd? Hang op.</p></details>
+      <details><summary>Welke apps gaan op slot tijdens een gesprek?</summary><p>Standaard je bank-apps, e-mail, DigiD en betaal-apps. In de app kun je zelf apps toevoegen of weghalen.</p></details>
+      <details><summary>Kan ik een app tijdens het gesprek toch openen?</summary><p>Nee, en dat is expres. Oplichters zetten je onder druk om iets "snel even" te regelen. Een echte bank vraagt nooit om tijdens een telefoontje je app te openen of geld over te maken. Na ophangen zijn je apps meteen weer beschikbaar.</p></details>
+      <details><summary>Kost de app geld?</summary><p>In dit concept is Odido Secure gratis voor alle klanten.</p></details>
+    </section>
+
+    <section class="contact" aria-labelledby="hulp-h">
+      <h2 id="hulp-h">We zijn er voor je.</h2>
+      <p class="lead">Slachtoffer van fraude, of twijfel je? Hier kun je terecht.</p>
+      <div class="grid">
+        <div class="card"><h3>Fraudehelpdesk.</h3><p>Advies als je slachtoffer bent of twijfelt over een bericht.</p><a class="arrow" href="https://www.fraudehelpdesk.nl" target="_blank" rel="noopener" aria-label="Naar fraudehelpdesk.nl"><svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></div>
+        <div class="card"><h3>Je bank.</h3><p>Geld overgemaakt naar een oplichter? Bel meteen het nummer op je bankpas.</p><a class="arrow" href="#" aria-label="Wat moet ik doen?"><svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></div>
+        <div class="card"><h3>Politie.</h3><p>Doe altijd aangifte. Dat kan online of via 0900-8844.</p><a class="arrow" href="https://www.politie.nl" target="_blank" rel="noopener" aria-label="Naar politie.nl"><svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<a class="chat" href="#check" aria-label="Check een bericht"><svg viewBox="0 0 24 24"><path d="M4 18V9a6 6 0 016-6h4a6 6 0 016 6v1a6 6 0 01-6 6H8z"/><path d="M9 10.5c1.5 1.6 4.5 1.6 6 0"/></svg></a>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div><h4>Veilig online</h4><ul><li>Odido Secure</li><li>Phishing herkennen</li><li>Simswap</li><li>Tips voor ouders</li></ul></div>
+      <div><h4>Service</h4><ul><li>Fraude melden</li><li>Contact</li><li>Veelgestelde vragen</li></ul></div>
+      <div><h4>Over dit project</h4><ul><li>Opleiding Cyber Security</li><li>Concept-app tegen fraude</li></ul></div>
+    </div>
+    <div class="stores" style="margin:0 0 28px">
+      <a class="store" href="#" aria-label="Download Odido Secure voor Android in Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M12 7v7M9 11l3 3 3-3M10 18h4"/></svg><span><small>Samsung / Android</small><b>Google Play</b></span></a>
+      <a class="store" href="#" aria-label="Download Odido Secure voor iPhone in de App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M12 7v7M9 11l3 3 3-3M10 18h4"/></svg><span><small>iPhone</small><b>App Store</b></span></a>
+    </div>
+    <p class="disclaimer">Schoolproject. Dit is een concept en geen officiÃ«le pagina of dienst van Odido. Odido is een handelsnaam van de betreffende eigenaar.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
